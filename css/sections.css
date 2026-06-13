@@ -84,12 +84,28 @@
   opacity: 0.85;
   animation: float 7s var(--ease) infinite;
 }
+/* Portrait photo fills the panel */
+.hero-visual .hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+/* Fallback fill if the photo fails to load */
+.hero-visual.no-photo { background: var(--brand-gradient); }
+
 .hero-visual .visual-label {
   position: absolute;
-  inset: auto 0 var(--space-3) 0;
+  inset: auto 0 0 0;
+  padding: var(--space-4) var(--space-3) var(--space-2);
   text-align: center;
   font-size: var(--fs-small);
-  color: var(--text-muted);
+  color: #fff;
+  /* Readable over any photo */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
 }
 
 /* ====================== ABOUT ====================== */

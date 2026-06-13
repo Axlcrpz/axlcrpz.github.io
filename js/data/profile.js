@@ -11,6 +11,10 @@ export const profile = {
   available: true,                    // shows the "Available" status pill
   tagline: "Creating technology-driven solutions through data and analytics.",
 
+  // Hero portrait. Drop your photo in assets/img/ and point to it here.
+  // Set to null to show the animated gradient orb instead.
+  photo: "./assets/img/profile.jpg",
+
   // About section
   about: {
     lead:
@@ -36,7 +40,11 @@ export const profile = {
     ],
   },
 
-  // Path to a resume/CV PDF. Drop the file in assets/resume/ and update.
-  // Leave as null to hide the "Download CV" button.
-  resumeUrl: null, // e.g. "./assets/resume/Axcel-Corpuz-CV.pdf"
+  // Downloadable documents shown as buttons in the hero.
+  // Add/remove entries freely; each becomes a button. Empty array = none.
+  // NOTE: anything here is PUBLICLY downloadable on the live site.
+  documents: [
+    { label: "Resume", url: "./assets/resume/Axcel-Corpuz-Resume.pdf" },
+    { label: "CV", url: "./assets/resume/Axcel-Corpuz-CV.pdf" },
+  ],
 };
