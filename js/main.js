@@ -15,10 +15,12 @@ import { socials, contact } from "./data/socials.js";
 import { mount, esc } from "./utils/dom.js";
 import { icon } from "./components/icons.js";
 import { initScrollReveal } from "./utils/reveal.js";
+import { initScrollProgress } from "./utils/scroll.js";
 
 import { renderNavbar } from "./components/navbar.js";
 import { renderHero } from "./sections/hero.js";
 import { renderAbout } from "./sections/about.js";
+import { renderFocus } from "./sections/focus.js";
 import { renderSkills } from "./sections/skills.js";
 import { renderProjects } from "./sections/projects.js";
 import { renderEducation } from "./sections/education.js";
@@ -52,6 +54,7 @@ function renderAll() {
   renderNavbar();
   renderHero();
   renderAbout();
+  renderFocus();
   renderSkills();
   renderProjects();
   renderEducation();
@@ -62,7 +65,8 @@ function renderAll() {
 /** Boot once the DOM is parsed. */
 function init() {
   renderAll();
-  initScrollReveal(); // animate elements as they enter the viewport
+  initScrollReveal();   // animate elements as they enter the viewport
+  initScrollProgress(); // top read-progress bar
   document.title = `${profile.name} — ${profile.role}`;
 }
 

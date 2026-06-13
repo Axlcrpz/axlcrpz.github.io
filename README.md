@@ -58,9 +58,10 @@ axcel-portfolio/
 └─ js/
    ├─ main.js              # App entry: renders all sections, boots behaviors
    ├─ data/                # 📝 YOUR CONTENT lives here
-   │  ├─ profile.js        #   name, role, tagline, about, stats, resume
+   │  ├─ profile.js        #   name, role, headline, focus chips, about, stats, docs
+   │  ├─ focus.js          #   "What I do" value-proposition cards
    │  ├─ skills.js         #   skill groups
-   │  ├─ projects.js       #   project list
+   │  ├─ projects.js       #   projects (category, featured, impact bullets)
    │  ├─ education.js      #   education timeline + certifications
    │  └─ socials.js        #   email + social links
    ├─ components/          # Reusable UI pieces (return HTML strings)
@@ -72,13 +73,15 @@ axcel-portfolio/
    ├─ sections/            # One renderer per page section
    │  ├─ hero.js
    │  ├─ about.js
+   │  ├─ focus.js
    │  ├─ skills.js
    │  ├─ projects.js
    │  ├─ education.js
    │  └─ contact.js
    └─ utils/
       ├─ dom.js            # qs/qsa/mount/esc helpers
-      └─ reveal.js         # IntersectionObserver scroll reveal
+      ├─ reveal.js         # IntersectionObserver scroll reveal (with failsafe)
+      └─ scroll.js         # scroll-progress bar + active-nav scroll-spy
 ```
 
 ---
@@ -102,17 +105,18 @@ index.html  ──>  loads css/main.css  +  js/main.js (module)
 
 ## ✏️ Common edits
 
-| I want to…                        | Edit this file                                  |
-|-----------------------------------|-------------------------------------------------|
-| Change name / tagline / bio       | `js/data/profile.js`                            |
-| Add / edit a project              | `js/data/projects.js`                           |
-| Add a project screenshot          | drop in `assets/img/`, set `image:` in projects |
-| Add / reorder skills              | `js/data/skills.js`                             |
-| Update education / certifications | `js/data/education.js`                          |
-| Update email / social links       | `js/data/socials.js`                            |
-| Link your CV                      | add PDF to `assets/resume/`, set `resumeUrl`    |
-| Change brand color / fonts        | `css/tokens.css`                                |
-| Adjust a section's layout         | `css/sections.css`                              |
+| I want to…                          | Edit this file                                  |
+|-------------------------------------|-------------------------------------------------|
+| Change name / headline / bio / focus| `js/data/profile.js`                            |
+| Edit the "What I do" cards          | `js/data/focus.js`                              |
+| Add / edit a project (+ feature it) | `js/data/projects.js` (`featured: true`)        |
+| Add a project screenshot            | drop in `assets/img/`, set `image:` in projects |
+| Add / reorder skills                | `js/data/skills.js`                             |
+| Update education / certifications   | `js/data/education.js`                          |
+| Update email / social links         | `js/data/socials.js`                            |
+| Add / change downloadable docs      | `js/data/profile.js` (`documents` array)        |
+| Change brand color / fonts          | `css/tokens.css`                                |
+| Adjust a section's layout           | `css/sections.css`                              |
 
 ### Change the accent color
 In `css/tokens.css`:

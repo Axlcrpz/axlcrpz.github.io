@@ -14,6 +14,21 @@
 }
 .section--alt { background: var(--bg-alt); }
 
+/* ---- Scroll progress bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 200;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  /* JS sets scaleX; the transition smooths fast scrolls */
+  transition: transform 80ms linear;
+}
+
 /* ---- Navbar ---- */
 .navbar {
   position: sticky;
@@ -62,8 +77,10 @@
   background: var(--brand-gradient);
   transition: width var(--dur) var(--ease);
 }
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover,
+.nav-links a.is-active { color: var(--text); }
+.nav-links a:hover::after,
+.nav-links a.is-active::after { width: 100%; }
 
 .nav-actions { display: flex; align-items: center; gap: var(--space-2); }
 

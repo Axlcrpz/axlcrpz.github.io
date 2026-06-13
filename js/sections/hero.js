@@ -20,6 +20,11 @@ export function renderHero() {
     )
     .join("");
 
+  // Focus chips — quick, scannable signal of what Axcel does.
+  const focus = (profile.focus || [])
+    .map((f) => `<span class="hero-chip">${esc(f)}</span>`)
+    .join("");
+
   // Show the portrait if provided; if the image fails to load, fall
   // back to the animated orb so the panel is never empty/broken.
   const visual = profile.photo
@@ -34,14 +39,14 @@ export function renderHero() {
     <div class="hero-grid container">
       <div class="hero-copy">
         ${available}
-        <h1 class="hero-name animate-in">
+        <p class="hero-kicker animate-in">${esc(profile.role)}</p>
+        <h1 class="hero-name animate-in" style="animation-delay:.05s">
           <span class="text-gradient">${esc(profile.displayName)}</span>
         </h1>
-        <p class="hero-tagline animate-in" style="animation-delay:.1s">
-          <span class="hero-role">${esc(profile.role)}</span> —
-          ${esc(profile.tagline)}
-        </p>
-        <div class="hero-cta animate-in" style="animation-delay:.2s">
+        <p class="hero-headline animate-in" style="animation-delay:.1s">${esc(profile.headline)}</p>
+        <p class="hero-tagline animate-in" style="animation-delay:.15s">${esc(profile.tagline)}</p>
+        <div class="hero-chips animate-in" style="animation-delay:.2s">${focus}</div>
+        <div class="hero-cta animate-in" style="animation-delay:.25s">
           <a class="btn btn--primary" href="#projects">View my work</a>
           <a class="btn btn--ghost" href="#contact">Contact me</a>
           ${docs}

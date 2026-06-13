@@ -24,15 +24,21 @@ export function renderEducation() {
   const items = education.map(timelineItem).join("");
 
   const certs = certifications.length
-    ? `<div class="subjects" style="margin-top:var(--space-3)">
-         ${certifications
-           .map(
-             (c) =>
-               `<span class="tag">${esc(c.name)}${c.issuer ? " — " + esc(c.issuer) : ""}</span>`
-           )
-           .join("")}
+    ? `<div data-reveal style="margin-top:var(--space-4)">
+         <h3 class="certs-title">Certifications</h3>
+         <div class="subjects">
+           ${certifications
+             .map(
+               (c) =>
+                 `<span class="tag">${esc(c.name)}${c.issuer ? " — " + esc(c.issuer) : ""}</span>`
+             )
+             .join("")}
+         </div>
        </div>`
-    : `<p class="form-note" data-reveal>Certifications coming soon.</p>`;
+    : `<p class="form-note" data-reveal style="margin-top:var(--space-4)">
+         <strong style="color:var(--text)">Certifications:</strong>
+         actively pursuing credentials in data analytics &amp; business intelligence.
+       </p>`;
 
   mount(
     "education",

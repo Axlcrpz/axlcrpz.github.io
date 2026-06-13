@@ -6,7 +6,12 @@
 
 * { margin: 0; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* Offset anchored sections so the sticky navbar never covers them */
+  scroll-padding-top: 84px;
+}
 
 body {
   background: var(--bg);

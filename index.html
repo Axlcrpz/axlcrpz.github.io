@@ -39,6 +39,9 @@
   <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Top read-progress bar (driven by js/utils/scroll.js) -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- Navbar (rendered by js/components/navbar.js) -->
   <header id="navbar" class="navbar"></header>
 
@@ -46,10 +49,11 @@
     <!-- Each section is a mount point; markup is injected by its renderer -->
     <section id="hero" class="section section--hero"></section>
     <section id="about" class="section" aria-label="About"></section>
-    <section id="skills" class="section section--alt" aria-label="Skills"></section>
-    <section id="projects" class="section" aria-label="Projects"></section>
-    <section id="education" class="section section--alt" aria-label="Education"></section>
-    <section id="contact" class="section" aria-label="Contact"></section>
+    <section id="focus" class="section section--alt" aria-label="What I do"></section>
+    <section id="skills" class="section" aria-label="Skills"></section>
+    <section id="projects" class="section section--alt" aria-label="Projects"></section>
+    <section id="education" class="section" aria-label="Education"></section>
+    <section id="contact" class="section section--alt" aria-label="Contact"></section>
   </main>
 
   <!-- Footer (rendered by main.js) -->

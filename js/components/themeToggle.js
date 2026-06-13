@@ -16,15 +16,24 @@ export function themeToggleMarkup() {
     </button>`;
 }
 
+/** Keep the label describing the ACTION the button performs. */
+function syncLabel(btn) {
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  btn.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+}
+
 /** Wires up the click handler. Call after the toggle is in the DOM. */
 export function initThemeToggle() {
   const btn = document.getElementById("themeToggle");
   if (!btn) return;
 
+  syncLabel(btn);
+
   btn.addEventListener("click", () => {
     const root = document.documentElement;
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
     root.setAttribute("data-theme", next);
+    syncLabel(btn);
     try {
       localStorage.setItem("theme", next);
     } catch (e) {

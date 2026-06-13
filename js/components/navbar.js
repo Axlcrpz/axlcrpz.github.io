@@ -4,11 +4,13 @@
    ============================================================= */
 
 import { profile } from "../data/profile.js";
-import { mount, qs, qsa } from "../utils/dom.js";
+import { mount, qsa } from "../utils/dom.js";
 import { themeToggleMarkup, initThemeToggle } from "./themeToggle.js";
+import { initActiveNav } from "../utils/scroll.js";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
+  { label: "Expertise", href: "#focus" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
@@ -16,10 +18,6 @@ const NAV_ITEMS = [
 ];
 
 export function renderNavbar() {
-  const links = NAV_ITEMS.map(
-    (i) => `<a href="${i.href}">${i.label}</a>`
-  ).join("");
-
   mount(
     "navbar",
     `
@@ -41,6 +39,7 @@ export function renderNavbar() {
 
   initThemeToggle();
   initNavBehavior();
+  initActiveNav(); // scroll-spy: highlight the section currently in view
 }
 
 /** Scroll shadow + mobile menu open/close + close-on-link-click. */
