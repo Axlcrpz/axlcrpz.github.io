@@ -1,0 +1,75 @@
+/* =============================================================
+   tokens.css — Design tokens (the single source of truth).
+   Change a value here and it cascades across the whole site.
+   Two themes are defined: dark (default) and light.
+   ============================================================= */
+
+:root {
+  /* ---- Brand / accent (bold violet -> fuchsia, with cyan support) ---- */
+  --brand-1: #7c5cff;        /* violet  */
+  --brand-2: #d946ef;        /* fuchsia */
+  --brand-3: #22d3ee;        /* cyan support accent */
+  --brand-gradient: linear-gradient(120deg, var(--brand-1), var(--brand-2));
+
+  /* ---- Typography ---- */
+  --font-display: "Sora", system-ui, sans-serif;  /* headings / big type */
+  --font-body: "Inter", system-ui, sans-serif;    /* body text */
+
+  /* Fluid type scale (clamp = responsive without breakpoints) */
+  --fs-hero: clamp(3rem, 11vw, 9rem);
+  --fs-h1:   clamp(2.2rem, 5vw, 3.5rem);
+  --fs-h2:   clamp(1.6rem, 3vw, 2.4rem);
+  --fs-h3:   clamp(1.2rem, 2vw, 1.5rem);
+  --fs-body: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-small: 0.875rem;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-section: clamp(4rem, 10vw, 8rem);
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 600ms;
+}
+
+/* ---------- DARK THEME (default) ---------- */
+:root,
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --bg-alt: #101019;
+  --surface: #15151f;
+  --surface-2: #1c1c2a;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f8;
+  --text-muted: #a0a0b2;
+  --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 60px -10px var(--brand-1);
+  color-scheme: dark;
+}
+
+/* ---------- LIGHT THEME ---------- */
+[data-theme="light"] {
+  --bg: #f7f7fb;
+  --bg-alt: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f1f1f7;
+  --border: rgba(10, 10, 20, 0.10);
+  --text: #16161f;
+  --text-muted: #5a5a6e;
+  --shadow: 0 20px 50px -24px rgba(20, 20, 40, 0.25);
+  --glow: 0 0 60px -16px var(--brand-1);
+  color-scheme: light;
+}

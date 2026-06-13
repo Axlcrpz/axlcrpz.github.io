@@ -1,0 +1,123 @@
+/* =============================================================
+   components.css — Reusable UI primitives: buttons, cards, tags,
+   section headers, theme toggle. Keep these generic & composable.
+   ============================================================= */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              background var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: var(--brand-gradient);
+  color: #fff;
+  box-shadow: 0 10px 30px -10px var(--brand-1);
+}
+.btn--primary:hover { box-shadow: 0 16px 40px -10px var(--brand-2); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--brand-1); }
+
+/* ---- Theme toggle ---- */
+.theme-toggle {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.theme-toggle:hover { transform: rotate(-12deg); background: var(--surface-2); }
+.theme-toggle svg { width: 20px; height: 20px; }
+/* Show only the icon relevant to the active theme */
+.theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+/* ---- Section header (shared title block) ---- */
+.section-head {
+  max-width: 720px;
+  margin-bottom: var(--space-5);
+}
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  margin-bottom: var(--space-2);
+}
+.section-eyebrow::before {
+  content: "";
+  width: 28px; height: 2px;
+  background: var(--brand-gradient);
+}
+.section-title { font-size: var(--fs-h2); }
+.section-subtitle { margin-top: var(--space-2); font-size: var(--fs-body); }
+
+/* ---- Card (generic surface) ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  transition: transform var(--dur) var(--ease),
+              border-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--brand-1) 50%, var(--border));
+  box-shadow: var(--shadow);
+}
+
+/* ---- Tag / chip ---- */
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ---- Icon button (socials) ---- */
+.icon-btn {
+  width: 42px; height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.icon-btn:hover { color: var(--text); border-color: var(--brand-1); transform: translateY(-2px); }
+.icon-btn svg { width: 18px; height: 18px; }

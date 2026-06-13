@@ -1,0 +1,12 @@
+/* =============================================================
+   main.css — Single stylesheet entry point.
+   Imports modular partials in cascade order. Edit partials,
+   not this file (except to add/remove a partial).
+   ============================================================= */
+
+@import "./tokens.css";      /* design tokens: colors, type, spacing, themes */
+@import "./base.css";        /* reset + base element styles + typography     */
+@import "./layout.css";      /* container, navbar, footer, grid helpers      */
+@import "./components.css";  /* buttons, cards, tags, section headers        */
+@import "./sections.css";    /* per-section styles (hero, about, etc.)       */
+@import "./animations.css";  /* keyframes + scroll-reveal + reduced motion   */
