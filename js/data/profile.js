@@ -7,7 +7,7 @@ export const profile = {
   name: "Axcel Jhaze M. Corpuz",
   displayName: "Axcel Corpuz",        // used in the oversized hero type
   role: "Data Analyst & Web Developer",
-  location: "Quirino Province, Philippines",
+  location: "Diffum, Quirino, Philippines",
   available: true,                    // shows the "Available" status pill
 
   // Hero copy — value-led, so visitors understand the offer in seconds.
