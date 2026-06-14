@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: "Predicting Patient Disposition with Machine Learning",
+    title: "Predicting Patient Disposition using Machine Learning Based on Clinical and Demographic Data",
     category: "Predictive Modeling",
     featured: true,
     summary:
