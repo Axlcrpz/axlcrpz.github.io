@@ -1,11 +1,11 @@
 /* =============================================================
    sections/contact.js — Contact section.
-   The form has NO backend: on submit it builds a mailto: link and
-   opens the user's email client (works offline / on any host).
+   The form has NO backend: on submit it opens a Gmail compose window
+   with the message pre-filled (works on any host, no email app needed).
    To use a real backend later (e.g. Formspree), swap handleSubmit.
    ============================================================= */
 
-import { contact, socials } from "../data/socials.js";
+import { contact, socials, gmailComposeUrl } from "../data/socials.js";
 import { mount, qs, esc } from "../utils/dom.js";
 import { icon } from "../components/icons.js";
 
@@ -15,7 +15,7 @@ function socialButtons() {
     .map(
       (s) =>
         `<a class="icon-btn" href="${esc(s.url)}" aria-label="${esc(s.label)}"
-            ${s.url.startsWith("mailto:") ? "" : 'target="_blank" rel="noopener"'}>
+            target="_blank" rel="noopener">
            ${icon(s.key, { size: 18 })}
          </a>`
     )
@@ -33,7 +33,7 @@ export function renderContact() {
           <h2 class="contact-cta-title">Let's work <span class="text-gradient">together</span>.</h2>
           <p>${esc(contact.blurb)}</p>
           <p style="margin-top:var(--space-2)">
-            <a href="mailto:${esc(contact.email)}" class="hero-role">${esc(contact.email)}</a>
+            <a href="${esc(gmailComposeUrl())}" target="_blank" rel="noopener" class="hero-role">${esc(contact.email)}</a>
           </p>
           <div class="contact-socials">${socialButtons()}</div>
         </div>
@@ -52,7 +52,7 @@ export function renderContact() {
             <textarea id="cf-message" name="message" required placeholder="Tell me about your project or role..."></textarea>
           </div>
           <button class="btn btn--primary" type="submit">Send message ${icon("arrow", { size: 16 })}</button>
-          <p class="form-note">This opens your email app with the message pre-filled.</p>
+          <p class="form-note">This opens Gmail in a new tab with your message pre-filled.</p>
         </form>
       </div>
     </div>`
@@ -76,8 +76,8 @@ function initContactForm() {
     const subject = `Portfolio inquiry from ${name}`;
     const body = `${message}\n\n— ${name} (${email})`;
 
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    // Open Gmail compose in a new tab (falls back to same tab if blocked).
+    const url = gmailComposeUrl(subject, body);
+    window.open(url, "_blank", "noopener") || (window.location.href = url);
   });
 }
