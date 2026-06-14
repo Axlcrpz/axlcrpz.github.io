@@ -20,6 +20,28 @@ export const education = [
       "Research Methods",
     ],
   },
+  {
+    date: "2021-2022",
+    title:
+      "Senior High School — Technical Vocational Livelihood (TVL) Information and Communication Technology (TVL-ICT)",
+    org: "Diffun National High School",
+    detail:
+      "Computer hardware troubleshooting, basic system maintenance, and introductory programming tasks.",
+  },
+  {
+    date: "2016-2020",
+    title: "Junior High School",
+    org: "Diffun National High School",
+    detail:
+      "General education with a focus on foundational subjects and skill development.",
+  },
+  {
+    date: "2012-2016",
+    title: "Elementary School",
+    org: "Diffun West Central School",
+    detail:
+      "Basic education covering core subjects and early skill development.",
+  },
 ];
 
 /* Certifications — add objects as you earn them, e.g.
