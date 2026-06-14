@@ -14,6 +14,5 @@ export const contact = {
 export const socials = [
   { key: "email", label: "Email", url: "mailto:axcelcorpuz95@gmail.com" },
   { key: "github", label: "GitHub", url: "https://github.com/Axlcrpz" },
-  // TODO: replace with your real LinkedIn URL
-  { key: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/" },
+  { key: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/jhaze-manat-5329013b5" },
 ];

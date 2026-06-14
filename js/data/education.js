@@ -6,7 +6,7 @@
 
 export const education = [
   {
-    date: "Expected 2026",
+    date: "2022-2026",
     title: "BS Computer Science — Major in Business Analytics",
     org: "Quirino State University",
     detail:

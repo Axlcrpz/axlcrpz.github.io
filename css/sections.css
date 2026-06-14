@@ -303,11 +303,15 @@
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: var(--space-4);
-    align-items: center;
+    align-items: stretch;
   }
   .project-card--featured .project-thumb {
-    aspect-ratio: 4 / 3;
+    /* Fill the column width × full card height. We cancel the default
+       width/height ratio here — a fixed ratio combined with a tall row
+       would compute a width wider than the column and overlap the text. */
+    aspect-ratio: auto;
     height: 100%;
+    min-height: 280px;
     margin-bottom: 0;
   }
 }

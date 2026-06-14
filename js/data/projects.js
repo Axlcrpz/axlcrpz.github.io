@@ -1,19 +1,3 @@
-/* =============================================================
-   data/projects.js — Project showcase.
-
-   Each project is framed around IMPACT, not just tech:
-   - `category`      short label shown as a badge (scannability)
-   - `featured`      true = highlighted, full-width card (lead with it)
-   - `summary`       one-line "what it is"
-   - `contributions` 2–3 bullets: what YOU did / the thinking involved
-   - `outcome`       the value / result (kept honest, no invented metrics)
-   - `stack`         tools used
-   - `image`         optional screenshot path; null = gradient placeholder
-   - `links.live` / `links.repo`  add a URL when available
-
-   Featured projects render first and span the full row.
-   ============================================================= */
-
 export const projects = [
   {
     title: "Predicting Patient Disposition with Machine Learning",
